@@ -136,6 +136,21 @@ public class DataService
 
         Laegemiddel lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
 
+        if (patient == null)
+        {
+            throw new ArgumentException("Patient findes ikke");
+        }
+
+        if (lægemiddel == null)
+        {
+            throw new ArgumentException("Lægemiddel findes ikke");
+        }
+
+        if (startDato.Date >= slutDato.Date)
+        {
+            throw new ArgumentException("Slutdato skal være efter startdato");
+        }
+        
         PN  nyPn = new PN {startDen = startDato, slutDen = slutDato, antalEnheder = antal, laegemiddel = lægemiddel};
 
         db.PNs.Add(nyPn);
