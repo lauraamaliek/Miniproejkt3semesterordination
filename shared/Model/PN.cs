@@ -23,7 +23,7 @@ public class PN : Ordination {
 
     public override double doegnDosis() {
 
-	    double samletDøgnDosis = this.samletDosis()/antalDageMellemGivninger();
+	    double samletDøgnDosis = samletDosis()/antalDageMellemGivninger();
 
 	    return samletDøgnDosis;
     }
