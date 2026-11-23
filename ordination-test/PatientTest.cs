@@ -17,7 +17,7 @@ public class PatientTest
         Assert.AreEqual(navn, patient.navn);
     }
 
-
+//Skal slettes
     [TestMethod]
     public void TestDerAltidFejler()
     {
