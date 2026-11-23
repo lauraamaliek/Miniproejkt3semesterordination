@@ -13,6 +13,7 @@ tmp
 .idea
 bin/
 obj/
+.DS_Store
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
