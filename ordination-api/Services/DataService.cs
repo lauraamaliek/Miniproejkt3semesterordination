@@ -165,11 +165,18 @@ public class DataService
         DateTime startDato, DateTime slutDato) {
 
         // TODO: Implement!
+        Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
+
+        Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
         return null!;
     }
 
     public DagligSkæv OpretDagligSkaev(int patientId, int laegemiddelId, Dosis[] doser, DateTime startDato, DateTime slutDato) {
         // TODO: Implement!
+        Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
+
+        Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
+
         return null!;
     }
 
@@ -187,6 +194,10 @@ public class DataService
     /// <returns></returns>
 	public double GetAnbefaletDosisPerDøgn(int patientId, int laegemiddelId) {
         // TODO: Implement!
+        Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
+
+        Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
+        
         return -1;
 	}
     
