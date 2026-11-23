@@ -132,9 +132,9 @@ public class DataService
 
     public PN OpretPN(int patientId, int laegemiddelId, double antal, DateTime startDato, DateTime slutDato) {
 
-        Patient patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
+        Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
 
-        Laegemiddel lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
+        Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
 
         if (patient == null)
         {
