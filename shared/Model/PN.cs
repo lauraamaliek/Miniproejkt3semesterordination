@@ -22,10 +22,21 @@ public class PN : Ordination {
     }
 
     public override double doegnDosis() {
-    	// TODO: Implement!
-        return -1;
+
+	    double samletDøgnDosis = this.samletDosis()/antalDageMellemGivninger();
+
+	    return samletDøgnDosis;
     }
 
+    public double antalDageMellemGivninger()
+    {
+	    DateTime førsteDato = dates.Min(d => d.dato.Date);
+	    DateTime sidsteDato = dates.Max(d => d.dato.Date);
+
+	    int antalDage = (sidsteDato - førsteDato).Days + 1;
+
+	    return antalDage;
+    }
 
     public override double samletDosis() {
         return dates.Count() * antalEnheder;
