@@ -131,8 +131,18 @@ public class DataService
     }
 
     public PN OpretPN(int patientId, int laegemiddelId, double antal, DateTime startDato, DateTime slutDato) {
-        // TODO: Implement!
-        return null!;
+
+        Patient patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
+
+        Laegemiddel lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
+
+        PN  nyPn = new PN {startDen = startDato, slutDen = slutDato, antalEnheder = antal, laegemiddel = lægemiddel};
+
+        db.PNs.Add(nyPn);
+        patient.ordinationer.Add(nyPn);
+        db.SaveChanges();
+        
+        return nyPn;
     }
 
     public DagligFast OpretDagligFast(int patientId, int laegemiddelId, 
