@@ -90,15 +90,17 @@ public class ServiceTest
     public void PatientVægt1()
     {
         //Arrange
-        string cprNr = "123456-1230";
+        string cprNr = "011064-1522"; //Ulla
+        
+        string medicin = "Acetylsalicylsyre";
+
+        double forventet = 8.985;
+        
+        //Act 
         
         Patient? patient = service.GetPatienter()
             .FirstOrDefault(p => p.cprnr == cprNr);
         
-        string medicin = "Acetylsalicylsyre";
-
-        double forventet = 1.5;
-        //Act 
         Laegemiddel? laegemiddel = service.GetLaegemidler()
             .FirstOrDefault(l => l.navn == medicin);
 
@@ -109,136 +111,94 @@ public class ServiceTest
     }
     
     [TestMethod]
-    public void PatientVægt2()
-    {
-        //Arrange
-        
-        //Act 
-
-        //Assert
-    }
-
-    [TestMethod]
-    public void PatientVægt3()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    [TestMethod]
-    public void PatientVægt4()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    [TestMethod]
-    public void PatientVægt5()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    [TestMethod]
-    public void PatientVægt6()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    [TestMethod]
-    public void PatientVægt7()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    
-    [TestMethod]
-    public void PatientVægt8()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
-    
-    [TestMethod]
     public void PNOprettelse1()
     {
         //Arrange
-        
-        
-        //Act 
+        string cprNr = "011064-1522"; //Ulla
+        string medicin = "Paracetamol";
 
+        double antal = 3;
+        DateTime start = new DateTime(2026, 12, 1);
+        DateTime slut = new DateTime(2026, 12, 15);
+        
+        int antalFør = service.GetPNs().Count;
+
+        //Act 
+        Patient? patient = service.GetPatienter()
+            .FirstOrDefault(p => p.cprnr == cprNr);
+        
+        Laegemiddel? laegemiddel = service.GetLaegemidler()
+            .FirstOrDefault(l => l.navn == medicin);
+
+        PN nyPN = service.OpretPN(patient.PatientId, laegemiddel.LaegemiddelId, antal, start, slut);
+        
+        
         //Assert
+        Assert.AreEqual(antalFør + 1, service.GetPNs().Count);
+        
     }
     
     [TestMethod]
     public void PNOprettelse2()
     {
         //Arrange
-        
-        
-        //Act 
+       string cprNr = "011064-1522"; //Ulla
+       string medicin = "Paracetamol";
+       
+       DateTime slut = new DateTime(2026, 12, 1);
+       DateTime start = new DateTime(2026, 12, 15);
+       
+       int antalFør = service.GetPNs().Count;
 
-        //Assert
+       //Act 
+       Patient? patient = service.GetPatienter()
+           .FirstOrDefault(p => p.cprnr == cprNr);
+       
+       Laegemiddel? laegemiddel = service.GetLaegemidler()
+           .FirstOrDefault(l => l.navn == medicin);
+       
+       
+       //Assert
+       Assert.ThrowsException<ArgumentException>(() =>
+           service.OpretPN(patient.PatientId, laegemiddel.LaegemiddelId, 2, start, slut));
+
+       // ... og ordinationen oprettes ikke
+       Assert.AreEqual(antalFør, service.GetPNs().Count);
+       
     }
+    
     
     [TestMethod]
     public void PNOprettelse3()
     {
-        //Arrange
-        
-        
-        //Act 
+         //Arrange
+             string cprNr = "011064-1522"; //Ulla
+             string medicin = "Paracetamol";
+             
+             DateTime start = new DateTime(2026, 12, 1);
+             DateTime slut = new DateTime(2026, 12, 1);
+             
+             int antalFør = service.GetPNs().Count;
 
-        //Assert
+             //Act 
+             Patient? patient = service.GetPatienter()
+                 .FirstOrDefault(p => p.cprnr == cprNr);
+             
+             Laegemiddel? laegemiddel = service.GetLaegemidler()
+                 .FirstOrDefault(l => l.navn == medicin);
+             
+             
+             //Assert
+             Assert.ThrowsException<ArgumentException>(() =>
+                 service.OpretPN(patient.PatientId, laegemiddel.LaegemiddelId, 2, start, slut));
+
+             // ... og ordinationen oprettes ikke
+             Assert.AreEqual(antalFør, service.GetPNs().Count);
+             
     }
     
-    [TestMethod]
-    public void PNOprettelse4()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
     
-    [TestMethod]
-    public void PNOprettelse5()
-    {
-        //Arrange
-        
-        
-        //Act 
-
-        //Assert
-    }
+    /*
     
     [TestMethod]
     public void DagligFastOprettelse1()
@@ -518,7 +478,7 @@ public class ServiceTest
         Assert.AreEqual(2, service.GetDagligFaste().Count());
     }
     
-/*
+
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
     public void TestAtKodenSmiderEnException()

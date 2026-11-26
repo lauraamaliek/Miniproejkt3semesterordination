@@ -21,7 +21,7 @@ public class DataService
     public void SeedData() {
 
         // Patients
-        Patient[] patients = new Patient[12];
+        Patient[] patients = new Patient[5];
         patients[0] = db.Patienter.FirstOrDefault()!;
 
         if (patients[0] == null)
@@ -31,27 +31,13 @@ public class DataService
             patients[2] = new Patient("050972-1233", "Hans Jørgensen", 89.4);
             patients[3] = new Patient("011064-1522", "Ulla Nielsen", 59.9);
             patients[4] = new Patient("123456-1239", "Ib Hansen", 87.7);
-            patients[5] = new Patient("123456-1230", "Andersen", 15);
-            patients[6] = new Patient("123456-1231", "Berg", 24.9);
-            patients[7] = new Patient("123456-1232", "Christensen", 25);
-            patients[8] = new Patient("123456-1233", "Dahl", 65);
-            patients[9] = new Patient("123456-1234", "Eriksen", 120);
-            patients[10] = new Patient("123456-1235", "Hansen", 120.1);
-            patients[11] = new Patient("123456-1236", "Jensen", 135);
+ 
 
             db.Patienter.Add(patients[0]);
             db.Patienter.Add(patients[1]);
             db.Patienter.Add(patients[2]);
             db.Patienter.Add(patients[3]);
             db.Patienter.Add(patients[4]);
-            db.Patienter.Add(patients[5]);
-            db.Patienter.Add(patients[6]);
-            db.Patienter.Add(patients[7]);
-            db.Patienter.Add(patients[8]);
-            db.Patienter.Add(patients[9]);
-            db.Patienter.Add(patients[10]);
-            db.Patienter.Add(patients[11]);
-            db.Patienter.Add(patients[12]);
             db.SaveChanges();
         }
 
