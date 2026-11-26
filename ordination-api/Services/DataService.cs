@@ -163,12 +163,35 @@ public class DataService
     public DagligFast OpretDagligFast(int patientId, int laegemiddelId, 
         double antalMorgen, double antalMiddag, double antalAften, double antalNat, 
         DateTime startDato, DateTime slutDato) {
-
-        // TODO: Implement!
+        
         Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
 
         Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
         return null!;
+        
+        if (patient == null)
+        {
+            throw new ArgumentException("Patient findes ikke");
+        }
+
+        if (lægemiddel == null)
+        {
+            throw new ArgumentException("Lægemiddel findes ikke");
+        }
+
+        if (startDato.Date >= slutDato.Date)
+        {
+            throw new ArgumentException("Slutdato skal være efter startdato");
+        }
+
+        DagligFast nyDagligFast = new DagligFast(startDato, slutDato, lægemiddel,
+            antalMorgen, antalMiddag, antalAften, antalNat);
+     
+        db.DagligFaste.Add(nyDagligFast);
+        patient.ordinationer.Add(nyDagligFast);
+        db.SaveChanges();
+        
+        return nyDagligFast;
     }
 
     public DagligSkæv OpretDagligSkaev(int patientId, int laegemiddelId, Dosis[] doser, DateTime startDato, DateTime slutDato) {
