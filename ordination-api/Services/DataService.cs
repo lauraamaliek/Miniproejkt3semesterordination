@@ -226,8 +226,24 @@ public class DataService
     }
 
     public string AnvendOrdination(int id, Dato dato) {
-        // TODO: Implement!
-        return null!;
+        PN? pn = db.PNs.Include(p => p.dates).FirstOrDefault(p => p.OrdinationId == id);
+
+        if (pn == null)
+        {
+            return "PN-ordinationen blev ikke fundet";
+        }
+
+        bool resultat = pn.givDosis(dato);
+
+        if (resultat)
+        {
+            db.SaveChanges();
+            return "Dosis blev registreret";
+        }
+        else
+        {
+            return "Datoen ligger uden for ordinationens gyldighedsperiode";
+        }
     }
 
     /// <summary>
