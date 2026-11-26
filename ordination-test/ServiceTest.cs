@@ -40,13 +40,15 @@ public class ServiceTest
         //Arrange
         string cprNr = "011064-1522";
 
+        
+        //Act 
         Patient? patient = service.GetPatienter()
             .FirstOrDefault(p => p.cprnr == cprNr);
         
-
-        //Act 
-
         //Assert
+        
+        Assert.IsNotNull(patient);
+        Assert.AreEqual("Ulla Nielsen",patient.navn);
     }
     
     
@@ -54,11 +56,17 @@ public class ServiceTest
     public void PatientOgLægemiddel2()
     {
         //Arrange
-        
+        string cprNr = "011064-1522";
+
         
         //Act 
-
+        Patient? patient = service.GetPatienter()
+            .FirstOrDefault(p => p.cprnr == cprNr);
+        
         //Assert
+        
+        Assert.IsNotNull(patient);
+        Assert.AreEqual("Ulla Nielsen",patient.navn);
     }
     
     [TestMethod]
