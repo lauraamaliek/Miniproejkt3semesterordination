@@ -22,9 +22,21 @@ public class ServiceTest
     }
 
     [TestMethod]
-    public void PatientsExist()
+    public void FindPatient()
     {
         Assert.IsNotNull(service.GetPatienter());
+    }
+
+    [TestMethod]
+    public void Vaelglaegemiddel()
+    {
+        
+    }
+
+    [TestMethod]
+    public void Beregning()
+    {
+        
     }
 
     [TestMethod]
@@ -39,6 +51,42 @@ public class ServiceTest
             2, 2, 1, 0, DateTime.Now, DateTime.Now.AddDays(3));
 
         Assert.AreEqual(2, service.GetDagligFaste().Count());
+    }
+
+    [TestMethod]
+    public void OpretPN()
+    {
+        
+    }
+
+    [TestMethod]
+    public void OpretDagligSkaev()
+    {
+        
+    }
+
+    [TestMethod]
+    public void ValideringAfDatoer()
+    {
+        
+    }
+
+    [TestMethod]
+    public void Dosisvalidering()
+    {
+        
+    }
+
+    [TestMethod]
+    public void VisDagligSkaev()
+    {
+        
+    }
+
+    [TestMethod]
+    public void Afslutning()
+    {
+        
     }
 
     [TestMethod]
