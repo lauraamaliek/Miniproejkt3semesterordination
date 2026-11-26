@@ -254,12 +254,34 @@ public class DataService
     /// <param name="laegemiddel"></param>
     /// <returns></returns>
 	public double GetAnbefaletDosisPerDøgn(int patientId, int laegemiddelId) {
-        // TODO: Implement!
         Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
 
         Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
         
-        return -1;
-	}
+        
+        if (patient == null)
+            throw new ArgumentException("Patient findes ikke");
+
+        if (lægemiddel == null)
+            throw new ArgumentException("Lægemiddel findes ikke");
+
+        double faktor;
+
+        if (patient.vaegt < 25)
+        {
+            faktor = lægemiddel.enhedPrKgPrDoegnLet;
+        }
+        else if (patient.vaegt > 120)
+        {
+            faktor = lægemiddel.enhedPrKgPrDoegnTung;
+        }
+        else
+        {
+            faktor = lægemiddel.enhedPrKgPrDoegnNormal;
+        }
+
+        return patient.vaegt * faktor;
+    }
+	
     
 }

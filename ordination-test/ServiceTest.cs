@@ -22,13 +22,7 @@ public class ServiceTest
     }
 
     [TestMethod]
-    public void FindAllePatienter()
-    {
-        Assert.IsNotNull(service.GetPatienter());
-    }
-
-    [TestMethod]
-    public void FindpatientUdfraCpr()
+    public void FindPatient()
     {
         Assert.IsNotNull(service.GetPatienter());
     }
@@ -36,7 +30,6 @@ public class ServiceTest
     [TestMethod]
     public void PatientOgLægemiddel1()
     {
-<<<<<<< HEAD
         //Arrange
         string cprNr = "011064-1522";
 
