@@ -63,33 +63,49 @@ public class ServiceTest
     public void PatientOgLægemiddel3()
     {
         //Arrange
-        
-        
-        //Act 
+        string medicin = "Paracetamol";
 
+        //Act 
+        Laegemiddel? laegemiddel = service.GetLaegemidler()
+            .FirstOrDefault(l => l.navn == medicin);
         //Assert
+        Assert.AreEqual(medicin,laegemiddel.navn);
     }
     
     [TestMethod]
     public void PatientOgLægemiddel4()
     {
         //Arrange
-        
-        
-        //Act 
+        string medicin = "Panodil";
 
+        //Act 
+        Laegemiddel? laegemiddel = service.GetLaegemidler()
+            .FirstOrDefault(l => l.navn == medicin);
+        
         //Assert
+        Assert.IsNull(laegemiddel);
     }
     
     [TestMethod]
     public void PatientVægt1()
     {
         //Arrange
+        string cprNr = "123456-1230";
         
+        Patient? patient = service.GetPatienter()
+            .FirstOrDefault(p => p.cprnr == cprNr);
         
+        string medicin = "Acetylsalicylsyre";
+
+        double forventet = 1.5;
         //Act 
+        Laegemiddel? laegemiddel = service.GetLaegemidler()
+            .FirstOrDefault(l => l.navn == medicin);
+
+        double resultat = service.GetAnbefaletDosisPerDøgn(patient.PatientId, laegemiddel.LaegemiddelId);
 
         //Assert
+        Assert.AreEqual(forventet,resultat);
     }
     
     [TestMethod]
@@ -502,7 +518,7 @@ public class ServiceTest
         Assert.AreEqual(2, service.GetDagligFaste().Count());
     }
     
-
+/*
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
     public void TestAtKodenSmiderEnException()
@@ -514,5 +530,5 @@ public class ServiceTest
         // så fejler testen.
 
         Console.WriteLine("Her kommer der ikke en exception. Testen fejler.");
-    }
+    }*/
 }
