@@ -167,7 +167,6 @@ public class DataService
         Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
 
         Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
-        return null!;
         
         if (patient == null)
         {
