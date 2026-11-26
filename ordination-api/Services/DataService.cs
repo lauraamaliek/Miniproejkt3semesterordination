@@ -193,13 +193,36 @@ public class DataService
         return nyDagligFast;
     }
 
-    public DagligSkæv OpretDagligSkaev(int patientId, int laegemiddelId, Dosis[] doser, DateTime startDato, DateTime slutDato) {
-        // TODO: Implement!
+    public DagligSkæv OpretDagligSkaev(int patientId, int laegemiddelId, Dosis[] doser, DateTime startDato,
+        DateTime slutDato)
+    {
+
         Patient? patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
 
         Laegemiddel? lægemiddel = db.Laegemiddler.FirstOrDefault(l => l.LaegemiddelId == laegemiddelId);
 
-        return null!;
+        if (patient == null)
+        {
+            throw new ArgumentException("Patient findes ikke");
+        }
+
+        if (lægemiddel == null)
+        {
+            throw new ArgumentException("Lægemiddel findes ikke");
+        }
+
+        if (startDato.Date >= slutDato.Date)
+        {
+            throw new ArgumentException("Slutdato skal være efter startdato");
+        }
+
+        DagligSkæv nyDagligSkæv = new DagligSkæv(startDato, slutDato, lægemiddel, doser);
+
+        db.DagligSkæve.Add(nyDagligSkæv);
+        patient.ordinationer.Add(nyDagligSkæv);
+        db.SaveChanges();
+
+        return nyDagligSkæv;
     }
 
     public string AnvendOrdination(int id, Dato dato) {
