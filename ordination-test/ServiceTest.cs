@@ -26,19 +26,464 @@ public class ServiceTest
     {
         Assert.IsNotNull(service.GetPatienter());
     }
-
+    
     [TestMethod]
-    public void Vaelglaegemiddel()
+    public void PatientOgLægemiddel1()
     {
+        //Arrange
+        string cprNr = "011064-1522";
+
+        Patient? patient = service.GetPatienter()
+            .FirstOrDefault(p => p.cprnr == cprNr);
         
+
+        //Act 
+
+        //Assert
+    }
+    
+    
+    [TestMethod]
+    public void PatientOgLægemiddel2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientOgLægemiddel3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientOgLægemiddel4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
     }
 
     [TestMethod]
-    public void Beregning()
+    public void PatientVægt3()
     {
+        //Arrange
         
-    }
+        
+        //Act 
 
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt5()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt6()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PatientVægt7()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    
+    [TestMethod]
+    public void PatientVægt8()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PNOprettelse1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PNOprettelse2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PNOprettelse3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PNOprettelse4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void PNOprettelse5()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse5()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse6()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligFastOprettelse7()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse5()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse6()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse7()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void DagligSkævOprettelse8()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void KontrolAfDosis1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void KontrolAfDosis2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void KontrolAfDosis3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void KontrolAfDosis4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void KontrolAfDosis5()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void AfslutOprettelse1()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void AfslutOprettelse2()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void AfslutOprettelse3()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
+    [TestMethod]
+    public void AfslutOprettelse4()
+    {
+        //Arrange
+        
+        
+        //Act 
+
+        //Assert
+    }
+    
     [TestMethod]
     public void OpretDagligFast()
     {
@@ -52,42 +497,7 @@ public class ServiceTest
 
         Assert.AreEqual(2, service.GetDagligFaste().Count());
     }
-
-    [TestMethod]
-    public void OpretPN()
-    {
-        
-    }
-
-    [TestMethod]
-    public void OpretDagligSkaev()
-    {
-        
-    }
-
-    [TestMethod]
-    public void ValideringAfDatoer()
-    {
-        
-    }
-
-    [TestMethod]
-    public void Dosisvalidering()
-    {
-        
-    }
-
-    [TestMethod]
-    public void VisDagligSkaev()
-    {
-        
-    }
-
-    [TestMethod]
-    public void Afslutning()
-    {
-        
-    }
+    
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
