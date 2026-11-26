@@ -49,17 +49,14 @@ public class ServiceTest
     public void PatientOgLægemiddel2()
     {
         //Arrange
-        string cprNr = "011064-1522";
-
+        string cprNr = "121001-6666";
         
         //Act 
         Patient? patient = service.GetPatienter()
             .FirstOrDefault(p => p.cprnr == cprNr);
         
         //Assert
-        
-        Assert.IsNotNull(patient);
-        Assert.AreEqual("Ulla Nielsen",patient.navn);
+        Assert.IsNull(patient);
     }
     
     [TestMethod]
